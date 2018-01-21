@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 class Service {
   constructor(options) {
     this.options = options || {}
@@ -20,7 +19,7 @@ class Service {
     if (Array.isArray(data)) {
       return Promise.all(data.map(current => this.create(current)));
     }
-    return this.models['votantes']
+    return this.models['lideres']
       .create(data)
   }
   /* 
