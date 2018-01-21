@@ -5,7 +5,7 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const votantes = sequelizeClient.define('votantes',
+  const lideres = sequelizeClient.define('lideres',
     {
 
       cedula: {
@@ -30,20 +30,19 @@ module.exports = function (app) {
       },
       email: {
         type: DataTypes.STRING
-      },
-
-
+      }
     },
     {
       hooks: {
         beforeCount(options) {
-          options.raw = true
+          options.raw = true;
         }
       }
-    })
+    });
 
-  votantes.associate = function (models) {
+  lideres.associate = function (models) {
+    lideres.hasMany(models.listas, { as: 'Listas' })
   }
 
-  return votantes
-}
+  return lideres;
+};

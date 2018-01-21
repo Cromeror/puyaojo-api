@@ -35,14 +35,18 @@
     "@feathersjs/errors": "^3.2.1",
     "@feathersjs/express": "^1.1.2",
     "@feathersjs/feathers": "^3.0.5",
+    "axios": "^0.14.0",
     "compression": "^1.7.1",
     "cors": "^2.8.4",
     "feathers-sequelize": "^3.0.0",
+    "follow-redirects": "^1.3.0",
     "helmet": "^3.9.0",
     "mysql2": "^1.5.1",
     "sequelize": "^4.31.2",
     "serve-favicon": "^2.4.5",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.27"
   },
   "devDependencies": {
     "eslint": "^4.15.0",

@@ -33,11 +33,9 @@ module.exports = function (app) {
         }
       }
     });
+  puesto.associate = function (models) {
+    puesto.hasMany(models.votantes, { as: 'Votantes' })
+  }
 
-  puesto.associate = function (models) { // eslint-disable-line no-unused-vars
-    // Define associations here
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
-  };
-
-  return puesto;
-};
+  return puesto
+}
