@@ -1,10 +1,8 @@
-// See http://docs.sequelizejs.com/en/latest/docs/models-definition/
-// for more of what you can do here.
-const Sequelize = require('sequelize');
-const DataTypes = Sequelize.DataTypes;
+const Sequelize = require('sequelize')
+const DataTypes = Sequelize.DataTypes
 
 module.exports = function (app) {
-  const sequelizeClient = app.get('sequelizeClient');
+  const sequelizeClient = app.get('sequelizeClient')
   const votantes = sequelizeClient.define('votantes',
     {
 
@@ -43,6 +41,7 @@ module.exports = function (app) {
     })
 
   votantes.associate = function (models) {
+    votantes.belongsToMany(models.puesto, { through: 'zonificacion' })
   }
 
   return votantes

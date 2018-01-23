@@ -21,10 +21,6 @@ module.exports = function (app) {
     direccion: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    mesa: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   }, {
       hooks: {
@@ -34,7 +30,7 @@ module.exports = function (app) {
       }
     });
   puesto.associate = function (models) {
-    puesto.hasMany(models.votantes, { as: 'Votantes' })
+    puesto.belongsToMany(models.votantes, { through: 'zonificacion' })
   }
 
   return puesto

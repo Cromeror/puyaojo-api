@@ -1,11 +1,14 @@
+import { names as modelsNames } from '../../utils/models.utils'
+
 class Service {
   constructor(options) {
     this.options = options || {}
     this.models = this.options.models || {}
+    //console.log(names)
   }
 
   find(params) {
-    return this.models['votantes']
+    return this.models[modelsNames.votantes]
       .findAll()
   }
   /* 
@@ -19,7 +22,7 @@ class Service {
     if (Array.isArray(data)) {
       return Promise.all(data.map(current => this.create(current)));
     }
-    return this.models['lideres']
+    return this.models['modelsNames.']
       .create(data)
   }
   /* 

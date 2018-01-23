@@ -13,7 +13,7 @@ class Service {
   get(id, params) {
     return Promise.resolve({
       id, text: `A new message with ID: ${id}!`
-    });
+    })
   }
 
   /**
@@ -44,7 +44,7 @@ class Service {
 }
 
 module.exports = function (options) {
-  return new Service(options);
-};
+  return new Service(options)
+}
 
-module.exports.Service = Service;
+module.exports.Service = Service

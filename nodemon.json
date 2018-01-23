@@ -1,0 +1,11 @@
+{
+    "verbose": false,
+    "watch": [
+        "src",
+        "webpack/webpack.config.dev-client.js",
+        "webpack/webpack.config.dev-server.js",
+        ".stylelintrc"
+    ],
+    "legacyWatch": true,
+    "exec": "babel-node src/"
+}

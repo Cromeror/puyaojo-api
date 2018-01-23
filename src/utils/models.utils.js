@@ -1,4 +1,4 @@
-export default modelsNames = {
+export const names = {
     users: 'users',
     votantes: 'votantes',
     puesto: 'puesto',
