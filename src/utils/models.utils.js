@@ -3,5 +3,6 @@ export const names = {
     votantes: 'votantes',
     puesto: 'puesto',
     lideres: 'lideres',
-    listas: 'listas'
+    listas: 'listas',
+    zonificacion: 'zonificacion'
 }

@@ -1,7 +1,8 @@
-// Initializes the `votantes` service on path `/votantes`
-const createService = require('./votantes.class.js');
-const hooks = require('./votantes.hooks');
-const createModel = require('../../models/votantes.model');
+import createService from './votantes.class.js'
+import hooks from './votantes.hooks'
+import createModel from '../../models/votantes.model'
+//Sub-recursos
+import zonificacion from './zonificacion/zonificacion.service'
 
 module.exports = function (app) {
   const paginate = app.get('paginate')
@@ -11,7 +12,9 @@ module.exports = function (app) {
     name: 'votantes',
     paginate,
     models: app.get("sequelizeClient").models
-  };
+  }
+  //Sub recursos
+  app.configure(zonificacion)
 
   // Initialize our service with any options it requires
   app.use('/votantes', createService(options));
