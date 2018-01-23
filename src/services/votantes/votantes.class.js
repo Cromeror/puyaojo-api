@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+import { names as modelsNames } from '../../utils/models.utils'
 class Service {
   constructor(options) {
     this.options = options || {}
@@ -6,28 +6,27 @@ class Service {
   }
 
   find(params) {
-    return this.models['votantes']
+    return this.models[modelsNames.votantes]
       .findAll()
   }
-  /* 
-    get(id, params) {
-      return Promise.resolve({
-        id, text: `A new message with ID: ${id}!`
-      });
-    } */
+
+  get(id, params) {
+    return this.models[modelsNames.votantes].findOne({ where: { id } })
+  }
 
   create(data, params) {
     if (Array.isArray(data)) {
       return Promise.all(data.map(current => this.create(current)));
     }
-    return this.models['votantes']
+    return this.models[modelsNames.votantes]
       .create(data)
   }
+
+  update(id, data, params) {
+    return this.models[modelsNames.votantes].update(data, { where: { id } })
+  }
+
   /* 
-    update(id, data, params) {
-      return Promise.resolve(data);
-    }
-  
     patch(id, data, params) {
       return Promise.resolve(data);
     }

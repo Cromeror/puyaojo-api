@@ -9,11 +9,9 @@ class Service {
   find(params) {
     return this.models[modelsNames.puesto].findAll()
   }
-  
+
   get(id, params) {
-    return Promise.resolve({
-      id, text: `A new message with ID: ${id}!`
-    });
+    return this.models[modelsNames.puesto].findOne({ where: { id } })
   }
 
   /**
@@ -25,12 +23,12 @@ class Service {
     if (Array.isArray(data)) {
       return Promise.all(data.map(current => this.create(current)));
     }
-    return this.models['puesto']
+    return this.models[modelsNames.puesto]
       .create(data)
   }
 
   update(id, data, params) {
-    return this.models['puesto'].update(data, { where: { id } })
+    return this.models[modelsNames.puesto].update(data, { where: { id } })
   }
 
   /* 
