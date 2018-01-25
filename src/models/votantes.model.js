@@ -41,7 +41,7 @@ module.exports = function (app) {
     })
 
   votantes.associate = function (models) {
-    votantes.belongsToMany(models.puesto, { through: 'zonificacion' })
+    votantes.belongsTo(models.zonificacion)
   }
 
   return votantes

@@ -20,6 +20,7 @@ module.exports = function (app) {
       }
     });
   zonificacion.associate = function (models) {
+    zonificacion.belongsTo(models.puesto)
   }
 
   return zonificacion

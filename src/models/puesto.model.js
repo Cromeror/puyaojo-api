@@ -30,7 +30,6 @@ module.exports = function (app) {
       }
     });
   puesto.associate = function (models) {
-    puesto.belongsToMany(models.votantes, { through: 'zonificacion' })
   }
 
   return puesto

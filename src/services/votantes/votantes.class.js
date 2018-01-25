@@ -7,7 +7,14 @@ class Service {
 
   find(params) {
     return this.models[modelsNames.votantes]
-      .findAll()
+      .findAll({
+        include: [{
+          model: this.models[modelsNames.zonificacion],
+          include: [{
+            model: this.models[modelsNames.puesto]
+          }]
+        }]
+      })
   }
 
   get(id, params) {
@@ -19,7 +26,14 @@ class Service {
       return Promise.all(data.map(current => this.create(current)));
     }
     return this.models[modelsNames.votantes]
-      .create(data)
+      .create(data,
+      {
+        include: [
+          {
+            model: this.models[modelsNames.zonificacion]
+          }
+        ]
+      })
   }
 
   update(id, data, params) {
