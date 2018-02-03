@@ -17,11 +17,11 @@ module.exports = function (app) {
     puesto: {
       type: DataTypes.STRING,
       allowNull: false
-    },
+    }/* ,
     direccion: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    } */
   }, {
       hooks: {
         beforeCount(options) {
