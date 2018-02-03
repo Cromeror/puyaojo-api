@@ -1,5 +1,6 @@
 import { names as modelsNames } from '../../utils/models.utils'
-
+import Sequelize from 'sequelize'
+const Op = Sequelize.Op
 class Service {
   constructor(options) {
     this.options = options || {};
@@ -7,7 +8,10 @@ class Service {
   }
 
   find(params) {
-    return this.models[modelsNames.puesto].findAll()
+    return this.models[modelsNames.puesto]
+      .findAll({
+        where: params.where
+      })
   }
 
   get(id, params) {
