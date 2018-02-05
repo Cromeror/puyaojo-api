@@ -26,7 +26,7 @@ module.exports = function (app) {
       direccion: {
         type: DataTypes.STRING
       },
-      email: {
+      correo: {
         type: DataTypes.STRING
       },
 

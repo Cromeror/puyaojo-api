@@ -18,7 +18,16 @@ class Service {
   }
 
   get(id, params) {
-    return this.models[modelsNames.votantes].findOne({ where: { id } })
+    return this.models[modelsNames.votantes]
+      .findOne({
+        where: { id },
+        include: [{
+          model: this.models[modelsNames.zonificacion],
+          include: [{
+            model: this.models[modelsNames.puesto]
+          }]
+        }]
+      })
   }
 
   create(data, params) {
